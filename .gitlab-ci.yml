@@ -1,0 +1,15 @@
+image: php:7-cli
+
+before_script:
+- apt-get update -yqq
+- apt-get install curl git -yqq
+# xdebug for coverage
+- printf "\n" | pecl install xdebug
+- docker-php-ext-enable xdebug
+# Install composer and vendors
+- curl -sS https://getcomposer.org/installer | php
+- php composer.phar install --prefer-source -q
+
+test:app:
+  script:
+  - vendor/bin/phpunit --coverage-text --colors=never --configuration=phpunit.xml.dist

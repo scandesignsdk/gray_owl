@@ -1,0 +1,13 @@
+SKU,Title,attributes,Stock,Price
+socks-12,Socks,size:12,5,65
+table-blue,Table,color:blue,12,1495
+simplesku,Simple Product,,200,75
+chair-black,Chair,color:black,20,360
+chair-white,Chair,color:white,0,340
+socks-18,Socks,size:18,5,65
+chair-yellow,Chair,color:yellow,15,360
+table-black,Table,color:black,15,1500
+shoe-36-black,Black shoe,color:black;size:36,15,1250
+shoe-36-white,White shoe,color:white;size:36,10,1250
+shoe-38-yellow,Yellow shoe,color:yellow;size:38,8,1250
+shoe-38-green,Green shoe,color:green;size:38,5,1250

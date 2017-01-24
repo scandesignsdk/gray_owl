@@ -1,0 +1,14 @@
+language: php
+php:
+  - 7.1
+  - nightly
+
+matrix:
+  fast_finish: true
+
+before_script:
+  - travis_retry composer self-update
+  - travis_retry composer install --prefer-dist --no-interaction
+
+script:
+  - php vendor/bin/phpunit
