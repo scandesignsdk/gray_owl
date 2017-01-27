@@ -31,39 +31,40 @@ shoe-38-green,Green shoe,color:green;size:38,5,1250
 
 With this you should end up with the following
 
-* 12 simple products
-    * socks-12
-    * table-blue
-    * simple-sku
-    * chair-black
-    * chair-white
-    * socks-18
-    * chair-yellow
-    * table-black
-    * shoe-36-black
-    * shoe-36-white
-    * shoe-38-yellow
-    * shoe-38-green
-* 4 configurable products
-    * table
-        * Which consists of the following products
-            * table-blue
-            * table-black
-    * socks
-        * Which consists of the following products
-            * socks-12
-            * socks-18
-    * chair
-        * Which consists of the following products
-            * chair-black
-            * chair-white
-            * chair-yellow
-    * shoe
-        * Which consists of the following products
-            * shoe-36-black
-            * shoe-36-white
-            * shoe-38-yellow
-            * shoe-38-green
+* 16 products in total which are
+    * 12 simple products
+        * socks-12
+        * table-blue
+        * simple-sku
+        * chair-black
+        * chair-white
+        * socks-18
+        * chair-yellow
+        * table-black
+        * shoe-36-black
+        * shoe-36-white
+        * shoe-38-yellow
+        * shoe-38-green
+    * 4 configurable products
+        * table
+            * Which consists of the following products
+                * table-blue
+                * table-black
+        * socks
+            * Which consists of the following products
+                * socks-12
+                * socks-18
+        * chair
+            * Which consists of the following products
+                * chair-black
+                * chair-white
+                * chair-yellow
+        * shoe
+            * Which consists of the following products
+                * shoe-36-black
+                * shoe-36-white
+                * shoe-38-yellow
+                * shoe-38-green
             
 * Configurable products should be build from the product SKU and SKU on the configurable product should be the text before the first hyphen, and the configurable products title should be the simple product title first found.
 * Simple products which are in a configurable product must not be visible, but they still need to be added as a simple product
