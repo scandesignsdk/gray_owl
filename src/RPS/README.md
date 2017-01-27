@@ -3,14 +3,12 @@ Rock, Paper and Scissor
 
 ##### Who will win the tournament
 
-* Rock beats scissor
-* Scissor beats paper
-* Paper beats rock
-
 * The tournament will be played 1v1, if one player does not have any opponent the player will automaticcly advance to the next round.
 * Does 1 player have anything else than rock, paper or scissor, the whole tournament will be **invalid**.
 * If two players have the same, the first player in the match will win the match.
-* If 1 or less players, the tournament will be **cancelled** 
+* If 1 or less players, the tournament will be **cancelled**
+
+And as always: `Rock` beats `scissor`, `scissor` beats `paper` and `paper` beats `rock`
 
 Sample input
 
