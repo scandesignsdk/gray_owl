@@ -13,5 +13,5 @@ When finished
 
 The tests are 
 
-* [Rock, paper and scissor](src/RPS/README.md)
-* [Product import](src/Import/README.md)
+* [Rock, paper and scissor](src/RPS)
+* [Product import](src/Import)
