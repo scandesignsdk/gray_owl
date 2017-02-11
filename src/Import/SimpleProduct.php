@@ -25,7 +25,8 @@ class SimpleProduct implements SimpleProductInterface
         } else {
             $attrStrs = explode(';', $attributesStr);
             foreach ($attrStrs as $attrStr) {
-                $this->attributes[] = reset(explode(':', $attrStr));
+                $stringsArray = explode(':', $attrStr);
+                $this->attributes[] = reset($stringsArray);
             }
         }
 
