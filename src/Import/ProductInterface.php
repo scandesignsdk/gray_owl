@@ -46,4 +46,6 @@ interface ProductInterface
      */
     public function isInStock(): bool;
 
+
+
 }
