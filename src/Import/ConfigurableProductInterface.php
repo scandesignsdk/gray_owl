@@ -10,7 +10,7 @@ interface ConfigurableProductInterface extends ProductInterface
      * @param SimpleProductInterface $product
      * @return void
      */
-    public function addSimpleProduct(SimpleProductInterface $product): void;
+    public function addSimpleProduct(SimpleProductInterface $product);
 
     /**
      * Get the simple products for this configurable product
