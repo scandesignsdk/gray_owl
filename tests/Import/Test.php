@@ -143,12 +143,12 @@ class Test extends \PHPUnit_Framework_TestCase
 
     /**
      * @param string $filename
-     * @param string $demiliter
+     * @param string $delimiter
      * @return ImportProducts
      */
-    private function parseCsvData($filename, $demiliter)
+    private function parseCsvData($filename, $delimiter)
     {
-        $importer = new Import($filename, $demiliter);
+        $importer = new Import($filename, $delimiter);
         $importer->parse();
         $products = $importer->getProducts();
 
