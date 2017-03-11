@@ -25,7 +25,8 @@ class ConfigurableProduct implements ConfigurableProductInterface
              */
             $simpleProduct = $this->configurables[0];
             $simpleSku = $simpleProduct->getSku();
-            $sku = reset(explode('-', $simpleSku));
+            $skus = explode('-', $simpleSku);
+            $sku = reset($skus);
             return $sku;
         } else {
             return false;
