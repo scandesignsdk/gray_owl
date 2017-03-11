@@ -65,7 +65,8 @@ class Import
 
                 if (!empty($sku) && isset($sku)) {
                     $simpleProduct = new SimpleProduct($sku, $title, $attributes, $stock, $price);
-                    $category = reset(explode('-', $sku));
+                    $skus = explode('-', $sku);
+                    $category = reset($skus);
 
                     // check a simple product belong a category
                     if (!in_array($category, $categories)) {
