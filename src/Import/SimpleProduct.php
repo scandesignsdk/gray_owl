@@ -30,14 +30,14 @@ Class SimpleProduct Implements SimpleProductInterface {
         $this->title = $title;
     }
 
-    public function getAttributes(): array
+    public function getAttributes(): ?array
     {
         return $this->attributes;
     }
 
     public function setAttributes($attributes)
     {
-        $this->attributes = $attributes;
+        $this->attributes = (count($attributes)) ? $attributes : NULL;
     }
 
     public function isVisible(): bool
