@@ -13,7 +13,7 @@ class Test extends \PHPUnit_Framework_TestCase
     {
         $player = new Player('name', 'hand');
         $this->assertEquals('name', $player->getName());
-        $this->assertEquals('HAND', $player->getHand());
+        $this->assertEquals('hand', $player->getHand());
     }
 
     public function validMatchesProvider() : array
