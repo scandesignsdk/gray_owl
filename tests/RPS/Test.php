@@ -6,14 +6,14 @@ use SDM\RPS\InvalidTournamentException;
 use SDM\RPS\Player;
 use SDM\RPS\RPSTournament;
 
-class Test extends \PHPUnit_Framework_TestCase
+class Test extends \PHPUnit\Framework\TestCase
 {
 
     public function testPlayer()
     {
         $player = new Player('name', 'hand');
         $this->assertEquals('name', $player->getName());
-        $this->assertEquals('HAND', $player->getHand());
+        $this->assertEquals('hand', $player->getHand());
     }
 
     public function validMatchesProvider() : array
@@ -28,8 +28,8 @@ class Test extends \PHPUnit_Framework_TestCase
             ],
             [
                 [
-                    new Player('Aspen', 's'),
-                    new Player('Ginger', 'p'),
+                    new Player('Aspen', 'S'),
+                    new Player('Ginger', 'P'),
                     new Player('Clyde', 'P'),
                     new Player('Carter', 'R'),
                     new Player('Blaze', 'R'),
@@ -48,7 +48,7 @@ class Test extends \PHPUnit_Framework_TestCase
                 [
                     new Player('Adam', 'P'),
                     new Player('Andrew', 'S'),
-                    new Player('Chris', 'r'),
+                    new Player('Chris', 'R'),
                     new Player('Casey', 'P'),
                     new Player('Cadman', 'R')
                 ],

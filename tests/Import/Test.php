@@ -5,7 +5,7 @@ use SDM\Import\ConfigurableProductInterface;
 use SDM\Import\Import;
 use SDM\Import\SimpleProductInterface;
 
-class Test extends \PHPUnit_Framework_TestCase
+class Test extends \PHPUnit\Framework\TestCase
 {
 
     public function test_csv5()
@@ -26,7 +26,7 @@ class Test extends \PHPUnit_Framework_TestCase
         $this->assertEquals('size', $config->getAttributes()[1]);
         $this->assertFalse($config->isInStock());
     }
-
+    
     public function test_csv4()
     {
         $imported = $this->parseCsvData(__DIR__ . '/files/test4.csv', ',');
@@ -93,7 +93,9 @@ class Test extends \PHPUnit_Framework_TestCase
     public function test_csv1()
     {
         $imported = $this->parseCsvData(__DIR__ . '/files/test1.csv', ',');
-
+        
+        $this->assertCount(4, $imported->configurables, 'Configuruable count');
+        $this->assertCount(12, $imported->simples, 'Simple count');
         $this->assertCount(16, $imported->products, 'Product count');
         $this->assertCount(4, $imported->configurables, 'Configuruable count');
         $this->assertCount(12, $imported->simples, 'Simple count');
@@ -151,11 +153,16 @@ class Test extends \PHPUnit_Framework_TestCase
         $importer = new Import($filename, $demiliter);
         $importer->parse();
         $products = $importer->getProducts();
-
+        
+        //print_r(array_values($products));
+        
         $class = new ImportProducts();
+        
         foreach ($products as $product) {
             $class->products[] = $product;
-
+            
+            //print_r($product);
+            
             if ($product->isVisible()) {
                 $class->visibles[] = $product;
             } else {
