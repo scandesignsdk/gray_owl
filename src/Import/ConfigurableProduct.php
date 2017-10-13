@@ -13,22 +13,7 @@ class ConfigurableProduct implements ConfigurableProductInterface{
      * @var string
      */
     private $title;
-    
-    /**
-     * @var null|array
-     */
-    private $attributes;
-    
-    /**
-     * @var bool
-     */
-    private $inStock;
-    
-    /**
-     * @var float
-     */
-    private $price;
-    
+       
     /**
      * @var bool
      */
@@ -37,24 +22,18 @@ class ConfigurableProduct implements ConfigurableProductInterface{
     /**
      * @var SimpleProductInterface
      */
-    private $product;
+    private $products;
     
     /**
      * @param string $sku
      * @param string $title
-     * @param null|array $attributes
-     * @param bool $inStock
-     * @param float $price
      * @param bool $visible
      */    
-    public function __construct($sku, $title, $attributes, $inStock, $price, $visible){
+    public function __construct($sku){
         
-        $this->sku          = $sku;
-        $this->title        = $title;
-        $this->attributes   = $attributes;
-        $this->inStock      = $inStock;
-        $this->price        = $price;
-        $this->visible      = $visible;
+        $this->sku          = $sku;          //Set SKU
+        $this->title        = ucfirst($sku); //Same as SKU but with first uppercase 
+        $this->visible      = true;          //Set visible to true
     }
       
     /**
@@ -78,24 +57,20 @@ class ConfigurableProduct implements ConfigurableProductInterface{
     }
 
     /**
-     * Get the simple products attributes
-     *
-     * @return null|array
-     */
-    /**
-    public function getAttributes(): ?array{
-        
-        return $this->attributes;
-    }
-**/
-    /**
      * If this product is in stock
      *
      * @return bool
      */
     public function isInStock(): bool{
         
-        return $this->inStock;
+        //Traverse Simple Products to see if any of them is in stock
+        foreach($this->products as $product){
+            if($product->isInStock()){
+                return true; //Is in stock
+            }
+        }
+        
+        return false; //None Simple Products in stock
     }
     
     /**
@@ -105,7 +80,20 @@ class ConfigurableProduct implements ConfigurableProductInterface{
      */
     public function getPrice(): float{
         
-        return $this->price;
+        //Set lowest price to null
+        $lowest = null;
+        
+        //Traverse the SimpleProducts 
+        foreach($this->products as $product){
+            
+            //If the lowest price is NULL or bigger than the SimpleProduct price
+            //set a new lowest price for the ConfigurableProduct
+            if(is_null($lowest) || $product->getPrice() < $lowest){
+                $lowest = $product->getPrice();
+            }
+        }
+        //Return the lowest price
+        return $lowest;
     }
 
     /**
@@ -136,8 +124,7 @@ class ConfigurableProduct implements ConfigurableProductInterface{
      */
     public function addSimpleProduct(SimpleProductInterface $product): void{
         
-        
-        $this->product[] = $product;
+        $this->products[] = $product;
     }
 
     /**
@@ -147,7 +134,7 @@ class ConfigurableProduct implements ConfigurableProductInterface{
      */
     public function getSimpleProducts(): array{
         
-        return $this->product;
+        return $this->products;
     }
 
     /**
@@ -157,6 +144,27 @@ class ConfigurableProduct implements ConfigurableProductInterface{
      */
     public function getAttributes(): ?array{
         
-        return $this->attributes;
+        //New array of attributes
+        $configAttribtues = array();
+        
+        //Traverse each SimpleProduct to get their attributes.
+        foreach($this->products as $product){
+            foreach($product->getAttributes() as $attribute){
+                
+                //If not already added as a configured attribute for the
+                //ConfigurableProduct, add it to it
+                if(!in_array($attribute, $configAttribtues)){
+                    $configAttribtues[] = $attribute;
+                }
+            }
+        }
+        
+        //If attributes found, return them
+        if(count($configAttribtues) > 0){
+            return $configAttribtues;
+        }
+        
+        //Else return null
+        return null;
     }
 }

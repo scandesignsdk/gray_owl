@@ -7,7 +7,7 @@ use SDM\Import\SimpleProductInterface;
 
 class Test extends \PHPUnit\Framework\TestCase
 {
-
+    
     public function test_csv5()
     {
         $imported = $this->parseCsvData(__DIR__ . '/files/test5.csv', ',');
@@ -89,7 +89,7 @@ class Test extends \PHPUnit\Framework\TestCase
         $this->assertNull($p2->getAttributes());
 
     }
-
+    
     public function test_csv1()
     {
         $imported = $this->parseCsvData(__DIR__ . '/files/test1.csv', ',');

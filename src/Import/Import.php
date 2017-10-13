@@ -6,13 +6,8 @@ class Import implements ImportInterface
     
     private $filePath;    
     private $delimiter;
-    private $header;
-    private $configurable;
-    private $simples;
-    private $visibles;
-    private $nonvisibles;
     private $products;
-    private $productCount;
+    private $header;
     
     /**
      * Importer
@@ -32,15 +27,19 @@ class Import implements ImportInterface
      * @return void
      */
     public function parse(): void{
-                
+        
         //Opens and reads the file
         $file = fopen($this->filePath, "r");
         //Gets the data from the CSV file, seperated by (,)
+        
+        //First get headers (Not used)
         $header = fgetcsv($file, 1000, $this->delimiter);
         
+        //Get rest of the files (Products)
         while (($row = fgetcsv($file, 1000, $this->delimiter)) !== FALSE){
             
-            //Fetch product attributes
+            //Fetch product attributes by splitting the string at ';' and ':'
+            //and then adding each new string to $attributes array
             $attributes = preg_split("/(;|:)/", $row[2]);
             
             //Remove every second value of array
@@ -52,116 +51,76 @@ class Import implements ImportInterface
                 }
                 $i++;
             }  
-            //Rearanges array values
+            //Rearranges array values and check if empty
             $attributes = array_values($attributes);
-            
             if(empty($attributes[0])){
                 $attributes = null;
             }
             
             //See if simple product is in stock
             if($row[3] > 0){
-                $inStock = true;
+                $inStock = true; //Is in stock
             } else {
-                $inStock = false;
+                $inStock = false; //Is not in stock
             }
             
             //Create SimpleProduct
-            $simpleProduct = new SimpleProduct($row[0], $row[1], $attributes, $row[3], $row[4], $inStock, true);
+            $product = new SimpleProduct($row[0], $row[1], $attributes, $row[3], $row[4], $inStock, true);
             
             
             //Add SimpleProduct to $products array
-            $products[] = $simpleProduct;
+            $this->products[] = $product;
         }
         
-        $configArray = array();
-        $tempArray = array();
-        $skuArray = array();
-        $sku = "";
-        $title = "";
-        $attributes = array();
-        $inStock = true;
-        $price = 0;
-        $visible = true;
-        $foundConfig = false;
-        foreach($products as $product){
-            $fullString = $product->getSku();
-            
-            if(preg_match('/-/', $fullString)){
-                
-                $foundConfig = true;
-                
-                $newSKU = strtok($fullString, '-');
-                
-                
-                if(strpos($fullString, $newSKU) !== false){
-                    
-                    //If new, create new configArray
-                    if(!array_key_exists($newSKU, $configArray)){
-                        $configArray[$newSKU] = array();
-                        
-                        $skuArray[$newSKU] = array(1);
-                        print_r("added" . $newSKU);
-                        $tempArray[] = $newSKU;
-                        $tempArray[] = $product->getTitle();;
-                        $tempArray[] = $product->getAttributes();;
-                        $tempArray[] = $product->isInStock();
-                        $tempArray[] = $product->getPrice();
-                        $tempArray[] = $product->isVisible();                
-                    
-                    } else{
-                        $skuArray[$newSKU][0]++;                             
-                    }
-                    
-                
-                    //Check if a smaller price is available
-                    if($product->getPrice() < $tempArray[4]){
+        //Check if configurable products needs to be created
+        $this->findConfigurableProducts();
+        
+    }
 
-                        $tempArray[] = $product->getPrice();
-                        //$price = $product->getPrice();
-                    }
+    /**
+     * Check if configurable products needs to be created
+     *
+     * @return void
+     */
+    private function findConfigurableProducts(){
+        
+        //Create new array of configurable products
+        $configArray = array();
+        
+        //Go through simple products
+        foreach($this->products as $product){
+            
+            //Check if '-' is part of the product SKU
+            //Then create new SKU for configurable product
+            $productSku = $product->getSku();
+            if(preg_match('/-/', $productSku)){    
+                $configSku = strtok($productSku, '-');
+                
+                //Check if configurable SKU is already in array
+                if(strpos($productSku, $configSku) !== false){
                     
                     //Set the simple product to non visible
                     $product->setIsVisible(false);
                     
-                                    
-                }                
+                    //Add the simple product to the right configurable product
+                    $configArray[$configSku][] = $product;
+                }
             }
         }
-        if($foundConfig){
+        
+        //Traverse config array and create new ConfigurableProduct
+        foreach($configArray as $sku => $products){
+            $configProduct = new ConfigurableProduct($sku);
             
-            $amount = (count($tempArray) / 6);
-            
-            if($amount > 1){
+            //Add each SimpleProduct to the ConfigurableProduct
+            foreach($products as $product){
                 
-                $h = 0;
-                
-                while($h != $amount){
-                    $tempArrays = array_chunk($tempArray, 6);
-                    //print_r($tempArrays);
-                    
-                    $configProduct = new ConfigurableProduct($tempArrays[$h][0], $tempArrays[$h][1], $tempArrays[$h][2], $tempArrays[$h][3], $tempArrays[$h][4], $tempArrays[$h][5]);
-                    
-                    
-                    //TESTING
-                    $configProduct->addSimpleProduct($product);
-                    $configProduct->addSimpleProduct($product);;
-                    
-                    $products[] = $configProduct;
-
-                    $h++;
-                } 
-   
-            } else {
-                
-                $configProduct = new ConfigurableProduct($tempArray[0], $tempArray[1], $tempArray[2], $tempArray[3], $tempArray[4], $tempArray[5]);
-                
-                $products[] = $configProduct;
-                
+                $configProduct->addSimpleProduct($product);
             }
-        }
             
-        $this->products = $products;
+            //Add the ConfigurableProduct to the Product array
+            $this->products[] = $configProduct;
+        } 
     }
 
     /**
@@ -182,9 +141,9 @@ class Import implements ImportInterface
      */
     public function addProduct(ProductInterface $product): Import{
         
-        $this->product = $product; 
+        $this->products[] = $product; 
         
-        return $product;
+        return $this;
     }
 
 }
