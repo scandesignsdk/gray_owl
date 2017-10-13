@@ -24,6 +24,6 @@ interface ConfigurableProductInterface extends ProductInterface
      *
      * @return array
      */
-    public function getAttributes(): array;
+    public function getAttributes(): ?array;
 
 }
