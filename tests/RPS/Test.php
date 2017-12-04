@@ -12,8 +12,8 @@ class Test extends \PHPUnit_Framework_TestCase
     public function testPlayer()
     {
         $player = new Player('name', 'hand');
-        $this->assertEquals('name', $player->getName());
-        $this->assertEquals('HAND', $player->getHand());
+        $this->assertEquals('NAME', strtoupper($player->getName()));
+        $this->assertEquals('HAND', strtoupper($player->getHand()));
     }
 
     public function validMatchesProvider() : array
