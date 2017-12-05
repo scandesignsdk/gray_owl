@@ -21,7 +21,7 @@ class Player
     public function __construct($name, $hand)
     {
         $this->name = $name;
-        $this->hand = $hand;
+        $this->hand = strtoupper($hand);
     }
 
     /**
