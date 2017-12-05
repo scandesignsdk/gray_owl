@@ -22,9 +22,9 @@ interface ImportInterface
     /**
      * Add product to the importer
      *
-     * @param $product
-     * @return Import
+     * @param ProductInterface $product
+     * @return void
      */
-    public function addProduct($product): void;
+    public function addProduct(ProductInterface $product): void;
 
 }

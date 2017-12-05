@@ -23,7 +23,7 @@ interface ProductInterface
      *
      * @return null|array
      */
-    public function getAttributes(): array;
+    public function getAttributes();
 
     /**
      * Is the simple product visible
