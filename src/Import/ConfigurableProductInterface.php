@@ -15,7 +15,7 @@ interface ConfigurableProductInterface extends ProductInterface
     /**
      * Get the simple products for this configurable product
      *
-     * @return SimpleProductInterface[]
+     * @return SimpleProduct[]
      */
     public function getSimpleProducts(): array;
 
