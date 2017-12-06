@@ -10,7 +10,7 @@ interface ImportInterface
      *
      * @return void
      */
-    public function parse(): void;
+    public function parse();
 
     /**
      * Get products imported
