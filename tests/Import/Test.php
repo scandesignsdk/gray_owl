@@ -78,7 +78,7 @@ class Test extends \PHPUnit_Framework_TestCase
         $this->assertEquals(75, $p1->getPrice());
         $this->assertTrue($p1->isInStock());
         $this->assertEquals(15, $p1->getStock());
-        $this->assertNull($p1->getAttributes());
+        $this->assertEmpty($p1->getAttributes());
 
         $p2 = $imported->simples[1];
         $this->assertEquals('simplesku2', $p2->getSku());
@@ -86,7 +86,7 @@ class Test extends \PHPUnit_Framework_TestCase
         $this->assertEquals(25.15, $p2->getPrice());
         $this->assertFalse($p2->isInStock());
         $this->assertEquals(0, $p2->getStock());
-        $this->assertNull($p2->getAttributes());
+        $this->assertEmpty($p2->getAttributes());
 
     }
 
@@ -136,7 +136,7 @@ class Test extends \PHPUnit_Framework_TestCase
             if ($visible instanceof SimpleProductInterface) {
                 $this->assertEquals('simplesku', $visible->getSku());
                 $this->assertEquals(200, $visible->getStock());
-                $this->assertNull($visible->getAttributes());
+                $this->assertEmpty($visible->getAttributes());
             }
         }
     }
@@ -174,4 +174,17 @@ class Test extends \PHPUnit_Framework_TestCase
         return $class;
     }
 
+	/**
+	 * @expectedException RuntimeException
+	 */
+	public function testEmptyFileName() {
+		new Import('', '');
+	}
+
+	/**
+	 * @expectedException InvalidArgumentException
+	 */
+	public function testEmptyDelimiter() {
+		new Import(__DIR__ . '/files/test1.csv', '');
+	}
 }
