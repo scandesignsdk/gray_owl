@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3dbcfd95-aacd-4375-bec0-108153d5dfac" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/RPS/CancelledTournamentException.php" afterPath="$PROJECT_DIR$/src/RPS/CancelledTournamentException.php" />
-      <change beforePath="$PROJECT_DIR$/src/RPS/InvalidTournamentException.php" afterPath="$PROJECT_DIR$/src/RPS/InvalidTournamentException.php" />
-      <change beforePath="$PROJECT_DIR$/src/RPS/RPSTournament.php" afterPath="$PROJECT_DIR$/src/RPS/RPSTournament.php" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -19,11 +18,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="RPSTournament.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/RPS/RPSTournament.php">
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="463">
-              <caret line="40" column="20" lean-forward="true" selection-start-line="40" selection-start-column="20" selection-end-line="40" selection-end-column="20" />
+            <state relative-caret-position="104">
+              <caret line="4" column="6" lean-forward="false" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -40,6 +39,7 @@
         <option value="$PROJECT_DIR$/src/RPS/CancelledTournamentException.php" />
         <option value="$PROJECT_DIR$/src/RPS/InvalidTournamentException.php" />
         <option value="$PROJECT_DIR$/src/RPS/RPSTournament.php" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -111,7 +111,7 @@
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
-      <showMembers />
+      <showMembers ProjectPane="false" />
       <showModules />
       <showLibraryContents />
       <hideEmptyPackages />
@@ -187,12 +187,12 @@
       <option name="presentableId" value="Default" />
       <updated>1515935111767</updated>
       <workItem from="1515935114805" duration="21000" />
-      <workItem from="1515935148312" duration="8488000" />
+      <workItem from="1515935148312" duration="8662000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8509000" />
+    <option name="totallyTimeSpent" value="8683000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1680" height="986" extended-state="0" />
@@ -231,14 +231,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/LICENSE">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -345,6 +337,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="463">
           <caret line="40" column="20" lean-forward="true" selection-start-line="40" selection-start-column="20" selection-end-line="40" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="104">
+          <caret line="4" column="6" lean-forward="false" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
           <folding />
         </state>
       </provider>
