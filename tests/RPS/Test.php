@@ -5,8 +5,9 @@ use SDM\RPS\CancelledTournamentException;
 use SDM\RPS\InvalidTournamentException;
 use SDM\RPS\Player;
 use SDM\RPS\RPSTournament;
+use PHPUnit\Framework\TestCase;
 
-class Test extends \PHPUnit_Framework_TestCase
+class Test extends TestCase
 {
 
     public function testPlayer()

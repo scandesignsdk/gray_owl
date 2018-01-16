@@ -45,24 +45,6 @@ class PlayerController
     }
 
     /**
-     * Set players array, only players which is Player object.
-     */
-    private function setValidPlayers()
-    {
-        $filterList = [];
-
-        foreach( $this->players as $player )
-        {
-            if( $player instanceof Player )
-            {
-                $filterList[] = $player;
-            }
-        }
-
-        $this->players = $filterList;
-    }
-
-    /**
      * @param Player $player
      *
      * @return bool
@@ -89,5 +71,31 @@ class PlayerController
         {
             $this->validatePlayerHand( $player );
         }
+    }
+
+    /**
+     * @return array
+     */
+    public function getPlayers()
+    {
+        return $this->players;
+    }
+
+    /**
+     * Set players array, only players which is Player object.
+     */
+    private function setValidPlayers()
+    {
+        $filterList = [];
+
+        foreach( $this->players as $player )
+        {
+            if( $player instanceof Player )
+            {
+                $filterList[] = $player;
+            }
+        }
+
+        $this->players = $filterList;
     }
 }
