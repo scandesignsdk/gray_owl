@@ -2,14 +2,16 @@
 
 namespace SDM\RPS;
 
-use phpDocumentor\Reflection\Types\Self_;
 
 class RPSTournament
 {
-
     private const ROCK = 'R';
-    private const PAPER = 'P';
     private const SCISSOR = 'S';
+    private const PAPER = 'P';
+
+    private const HANDS = [ self::ROCK,
+                            self::SCISSOR,
+                            self::PAPER ];
 
     /**
      * @var Player[]
@@ -17,92 +19,129 @@ class RPSTournament
     private $players;
 
     /**
-     * @param Player[] $players Array with players
-     *
-     * @throws CancelledTournamentException
+     * @var PlayerController
      */
-    public function __construct( array $players )
-    {
-        $this->players = $players;
+    private $playerCtrl;
 
-        $this->isValidTournament();
+    /**
+     * @var MatchController
+     */
+    private $matchCtrl;
+
+    /**
+     * RPSTournament constructor.
+     *
+     * @param Player[] $players
+     * @param PlayerController $playerCtrl
+     * @param MatchController $matchCtrl
+     */
+    public function __construct( array $players, PlayerController $playerCtrl = null, MatchController $matchCtrl = null )
+    {
+        $this->playerCtrl = is_null( $playerCtrl ) ? new PlayerController( $players, self::HANDS ) : $playerCtrl;
+        $this->matchCtrl = is_null( $matchCtrl ) ? new MatchController( self::HANDS ) : $matchCtrl;
     }
 
     /**
-     * Get the winner of the tournament
-     *
-     * @throws InvalidTournamentException
-     * @throws CancelledTournamentException
-     *
+     * Start the tournament and get the winner.
      * @return Player
      */
     public function getWinner(): Player
     {
-        return null;
-    }
-
-    /**
-     * Get players array.
-     *
-     * @return Player[]
-     */
-    public function getPlayers(): array
-    {
-        return $this->players;
-    }
-
-    /**
-     * Check for invalid hands., if invalid
-     * check winner hand. If the first wins then return 1,
-     * if second wins then return 2, otherwise throw an InvalidTournamentException.
-     *
-     * @param $hand_1
-     * @param $hand_2
-     *
-     * @return int
-     * @throws InvalidTournamentException
-     */
-    public function winnerHand( $hand_1, $hand_2 )
-    {
-        if( $this->isValidHand( $hand_1 ) && $this->isValidHand( $hand_2 ) )
+        try
         {
-            $checkForRock = $hand_1 === self::ROCK && ( $hand_2 === self::ROCK || $hand_2 === self::SCISSOR );
-            $checkForScissor = $hand_1 === self::SCISSOR && ( $hand_2 === self::SCISSOR || $hand_2 === self::PAPER );
-            $checkForPaper = $hand_1 === self::PAPER && ( $hand_2 === self::PAPER || $hand_2 === self::ROCK );
+            // Set validated players
+            $this->players = $this->playerCtrl->getValidPlayers();
 
-            return ( $checkForRock || $checkForScissor || $checkForPaper ) ? 1 : 2;
+            // Check if the tournament has enough validated players
+            $this->isValidTournament();
+
+            // Check all player hands
+            $this->playerCtrl->validatePlayerHands( $this->players );
+
+            // Run matched and get the final winner
+            return $this->runMatches();
+
+        }
+        catch( InvalidTournamentException | CancelledTournamentException $e )
+        {
+            echo $e->getMessage();
+        }
+    }
+
+    private function runMatches()
+    {
+        while( sizeof( $this->players ) > 1 )
+        {
+            $list = [];
+
+            while( sizeof( $this->players ) > 0 )
+            {
+                // Get match winner
+                $list[] = $this->matchCtrl->getWinner( $this->getMatchPlayers() );
+
+                // Unset match players from players array
+                $this->unsetMatchPlayers();
+            }
+
+            $this->players = $list;
         }
 
-        throw new InvalidTournamentException();
+        return $this->players[ 0 ];
     }
 
+    private function getMatchPlayers()
+    {
+        if( isset( $this->players[ 1 ] ) )
+        {
+            return [ $this->players[ 0 ],
+                     $this->players[ 1 ] ];
+        }
+
+        return [ $this->players[ 0 ] ];
+    }
+
+    private function unsetMatchPlayers()
+    {
+        if( sizeof( $this->getMatchPlayers() ) > 1 )
+        {
+            unset( $this->players[ 0 ], $this->players[ 1 ] );
+        }
+        else
+        {
+            unset( $this->players[ 0 ] );
+        }
+
+        // Re-index players array
+        $this->players = array_values( $this->players );
+    }
 
     /**
-     * Validate the size of players array, if 1 or less players throw an CancelledTournamentException.
-     *
+     * @return bool
      * @throws CancelledTournamentException
      */
     private function isValidTournament()
     {
-        if( isset( $this->players ) && is_array( $this->players ) && sizeof( $this->players ) <= 1 )
+        if( sizeof( $this->players ) > 1 )
         {
-            throw new CancelledTournamentException();
+            return true;
         }
-    }
 
-    /**
-     * Validate the player's hand.
-     *
-     * @param $hand
-     *
-     * @return bool
-     */
-    private function isValidHand( $hand ): bool
-    {
-        return in_array( $hand,
-                         [ self::ROCK,
-                           self::SCISSOR,
-                           self::PAPER ] );
+        throw new CancelledTournamentException();
     }
-
 }
+/*
+require '../../vendor/autoload.php';
+
+$players[] = new Player( "Iso", "R" );
+$players[] = new Player( "Eda", "S" );
+$players[] = new Player( "Elif", "S" );
+$players[] = new Player( "Dilo", "R" );
+$players[] = new Player( "Cam", "R" );
+$players[] = new Player( "John", "R" );
+$players[] = new Player( "Noo", "S" );
+$players[] = new Player( "Noo2", "P" );
+$players[] = new Player( "Noo3", "R" );
+
+$rps = new RPSTournament( $players );
+
+print_r( $rps->startTournament() );*/
