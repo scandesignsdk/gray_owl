@@ -45,6 +45,23 @@ class RPSTournamentTest extends TestCase
      * @throws InvalidTournamentException
      * @throws CancelledTournamentException
      */
+    public function testGetWinner_valid_hands()
+    {
+        $players[] = new Player( "Adam", "P" );
+        $players[] = new Player( "Andrew", "S" );
+        $players[] = new Player( "Casey", "P" );
+        $players[] = new Player( "Cadman", "R" );
+        $rpsTournament = new RPSTournament( $players );
+
+        $this->invokeMethod( $rpsTournament, 'setValidPlayers' );
+
+        $this->assertEquals( $players[ 1 ], $rpsTournament->getWinner() );
+    }
+
+    /**
+     * @throws InvalidTournamentException
+     * @throws CancelledTournamentException
+     */
     public function testGetWinner_one_non_valid_hand()
     {
         $players[] = new Player( "Adam", "P" );
@@ -66,26 +83,44 @@ class RPSTournamentTest extends TestCase
      */
     public function testGetWinner_not_enough_players()
     {
+        $this->expectException( CancelledTournamentException::class );
+
         $players[] = new Player( "Adam", "P" );
         $rpsTournament = new RPSTournament( $players );
-
-        $this->expectException( CancelledTournamentException::class );
 
         $this->assertEquals( $players[ 0 ], $rpsTournament->getWinner() );
     }
 
+    /**
+     * @throws InvalidTournamentException
+     * @throws CancelledTournamentException
+     */
+    /*  public function testGetWinner_valid_players_but_not_valid_tournament()
+      {
+          $players[] = new Player( "Adam", "P" );
+          $players[] = new Player( "Andrew", "S" );
+          $players[] = new Player( "Casey", "P" );
+          $players[] = new Player( "Cadman", "R" );
+          $rpsTournament = new RPSTournament( $players );
+
+
+
+          $this->assertEquals( $players[ 0 ], $rpsTournament->getWinner() );
+      }*/
+
     public function testIsValidTournament_one_players()
     {
+        $this->expectException( CancelledTournamentException::class );
+
         $players[] = new Player( "Adam", "P" );
 
         $rpsTournament = new RPSTournament( $players );
-
-        $this->expectException( CancelledTournamentException::class );
 
         $method = $this->invokeMethod( $rpsTournament, 'isValidTournament' );
 
         $this->assertTrue( $method );
     }
+
 
     public function testIsValidTournament_multiple_players()
     {
@@ -100,6 +135,7 @@ class RPSTournamentTest extends TestCase
 
         $this->assertTrue( $method );
     }
+
 
     public function testUnsetMatchPlayers_multiple_players()
     {
@@ -116,6 +152,7 @@ class RPSTournamentTest extends TestCase
 
         $this->assertEquals( 2, sizeof( $property ) );
     }
+
 
     public function testUnsetMatchPlayers_one_players()
     {
@@ -168,5 +205,15 @@ class RPSTournamentTest extends TestCase
         $method = $this->invokeMethod( $rpsTournament, 'runMatches' );
 
         $this->assertEquals( $players[ 1 ], $method );
+    }
+
+    public function testRunMatches_one_player()
+    {
+        $players[] = new Player( "Adam", "P" );
+        $rpsTournament = new RPSTournament( $players );
+
+        $method = $this->invokeMethod( $rpsTournament, 'runMatches' );
+
+        $this->assertEquals( $players[ 0 ], $method );
     }
 }

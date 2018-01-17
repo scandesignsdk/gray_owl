@@ -22,12 +22,12 @@ class PlayerTest extends TestCase
         $this->player = new Player( "Ismail", "R" );
     }
 
-    public function testGetHand()
+    public function testGetName()
     {
         $this->assertEquals( "Ismail", $this->player->getName() );
     }
 
-    public function testGetName()
+    public function testGetHand()
     {
         $this->assertEquals( "R", $this->player->getHand() );
     }

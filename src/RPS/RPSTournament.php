@@ -51,14 +51,14 @@ class RPSTournament
      */
     public function getWinner(): Player
     {
+        // Check if the tournament has enough validated players
+        $this->isValidTournament();
+
         // Set validated players
         $this->setValidPlayers();
 
         // Check all player hands
         $this->playerCtrl->validatePlayerHands( $this->players );
-
-        // Check if the tournament has enough validated players
-        $this->isValidTournament();
 
         // Run matched and get the final winner
         return $this->runMatches();

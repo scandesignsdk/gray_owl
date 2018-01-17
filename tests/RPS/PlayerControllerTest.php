@@ -61,7 +61,6 @@ class PlayerControllerTest extends TestCase
     /**
      * Is elements in the players array instance of Player object.
      * @throws CancelledTournamentException
-     * @covers PlayerController::getValidPlayers()
      */
     public function testGetValidPlayers()
     {
@@ -69,9 +68,21 @@ class PlayerControllerTest extends TestCase
     }
 
     /**
+     * Is elements in the players array instance of Player object.
+     * @throws CancelledTournamentException
+     */
+    public function testGetValidPlayers_no_players()
+    {
+        $this->expectException( CancelledTournamentException::class );
+
+        $playerCtrl = new PlayerController( [], $this->hands );
+
+        $this->assertEquals( null, sizeof( $playerCtrl->getValidPlayers() ) );
+    }
+
+    /**
      * Test not valid player hand.
      * @throws InvalidTournamentException
-     * @covers PlayerController::validatePlayerHand()
      */
     public function testValidatePlayerHand()
     {
@@ -83,19 +94,32 @@ class PlayerControllerTest extends TestCase
     /**
      * Test not valid player hands.
      * @throws InvalidTournamentException
-     * @covers PlayerController::validatePlayerHands()
      */
-    public function testValidatePlayerHands()
+    public function testValidatePlayerHands_no_valid()
     {
         $this->expectException( InvalidTournamentException::class );
 
         $this->playerCtrl->validatePlayerHands( $this->players );
     }
 
-
     /**
-     * @covers PlayerController::setValidPlayers()
+     * Test not valid player hands.
+     * @throws InvalidTournamentException
      */
+    public function testValidatePlayerHands_valid()
+    {
+        $players[] = new Player( "Adam", "P" );
+        $players[] = new Player( "Andrew", "S" );
+        $players[] = new Player( "Casey", "P" );
+        $players[] = new Player( "Cadman", "R" );
+
+        $playerCtrl = new PlayerController( $players, $this->hands );
+
+        $playerCtrl->validatePlayerHands( $players );
+
+        $this->assertEquals( null, $this->getExpectedException() );
+    }
+
     public function testSetValidPlayers()
     {
         $this->assertEquals( 6, sizeof( $this->playerCtrl->getPlayers() ) );
@@ -105,9 +129,6 @@ class PlayerControllerTest extends TestCase
         $this->assertEquals( 5, sizeof( $this->playerCtrl->getPlayers() ) );
     }
 
-    /**
-     * @covers PlayerController::getPlayers()
-     */
     public function testGetPlayers()
     {
         $this->assertEquals( 6, sizeof( $this->playerCtrl->getPlayers() ) );
