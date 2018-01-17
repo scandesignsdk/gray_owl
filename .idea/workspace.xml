@@ -2,30 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3dbcfd95-aacd-4375-bec0-108153d5dfac" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/coverage/Import/ConfigurableProductInterface.php.html" afterPath="$PROJECT_DIR$/coverage/Import/ConfigurableProductInterface.php.html" />
-      <change beforePath="$PROJECT_DIR$/coverage/Import/Import.php.html" afterPath="$PROJECT_DIR$/coverage/Import/Import.php.html" />
-      <change beforePath="$PROJECT_DIR$/coverage/Import/ImportInterface.php.html" afterPath="$PROJECT_DIR$/coverage/Import/ImportInterface.php.html" />
-      <change beforePath="$PROJECT_DIR$/coverage/Import/ProductInterface.php.html" afterPath="$PROJECT_DIR$/coverage/Import/ProductInterface.php.html" />
-      <change beforePath="$PROJECT_DIR$/coverage/Import/SimpleProductInterface.php.html" afterPath="$PROJECT_DIR$/coverage/Import/SimpleProductInterface.php.html" />
-      <change beforePath="$PROJECT_DIR$/coverage/Import/dashboard.html" afterPath="$PROJECT_DIR$/coverage/Import/dashboard.html" />
-      <change beforePath="$PROJECT_DIR$/coverage/Import/index.html" afterPath="$PROJECT_DIR$/coverage/Import/index.html" />
-      <change beforePath="$PROJECT_DIR$/coverage/RPS/CancelledTournamentException.php.html" afterPath="$PROJECT_DIR$/coverage/RPS/CancelledTournamentException.php.html" />
-      <change beforePath="$PROJECT_DIR$/coverage/RPS/InvalidTournamentException.php.html" afterPath="$PROJECT_DIR$/coverage/RPS/InvalidTournamentException.php.html" />
-      <change beforePath="$PROJECT_DIR$/coverage/RPS/MatchController.php.html" afterPath="$PROJECT_DIR$/coverage/RPS/MatchController.php.html" />
-      <change beforePath="$PROJECT_DIR$/coverage/RPS/Player.php.html" afterPath="$PROJECT_DIR$/coverage/RPS/Player.php.html" />
-      <change beforePath="$PROJECT_DIR$/coverage/RPS/PlayerController.php.html" afterPath="$PROJECT_DIR$/coverage/RPS/PlayerController.php.html" />
-      <change beforePath="$PROJECT_DIR$/coverage/RPS/RPSTournament.php.html" afterPath="$PROJECT_DIR$/coverage/RPS/RPSTournament.php.html" />
-      <change beforePath="$PROJECT_DIR$/coverage/RPS/dashboard.html" afterPath="$PROJECT_DIR$/coverage/RPS/dashboard.html" />
-      <change beforePath="$PROJECT_DIR$/coverage/RPS/index.html" afterPath="$PROJECT_DIR$/coverage/RPS/index.html" />
-      <change beforePath="$PROJECT_DIR$/coverage/dashboard.html" afterPath="$PROJECT_DIR$/coverage/dashboard.html" />
-      <change beforePath="$PROJECT_DIR$/coverage/index.html" afterPath="$PROJECT_DIR$/coverage/index.html" />
-      <change beforePath="$PROJECT_DIR$/src/RPS/RPSTournament.php" afterPath="$PROJECT_DIR$/src/RPS/RPSTournament.php" />
-      <change beforePath="$PROJECT_DIR$/tests/RPS/MatchControllerTest.php" afterPath="$PROJECT_DIR$/tests/RPS/MatchControllerTest.php" />
-      <change beforePath="$PROJECT_DIR$/tests/RPS/PlayerControllerTest.php" afterPath="$PROJECT_DIR$/tests/RPS/PlayerControllerTest.php" />
-      <change beforePath="$PROJECT_DIR$/tests/RPS/PlayerTest.php" afterPath="$PROJECT_DIR$/tests/RPS/PlayerTest.php" />
-      <change beforePath="$PROJECT_DIR$/tests/RPS/RPSTournamentTest.php" afterPath="$PROJECT_DIR$/tests/RPS/RPSTournamentTest.php" />
-      <change beforePath="$PROJECT_DIR$/tests/RPS/Test.php" afterPath="$PROJECT_DIR$/tests/RPS/Test.php" />
+      <change beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change beforePath="$PROJECT_DIR$/src/Import/Import.php" afterPath="$PROJECT_DIR$/src/Import/Import.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -43,12 +21,15 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="RPSTournamentTest.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/tests/RPS/RPSTournamentTest.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="553">
-              <caret line="57" column="40" lean-forward="false" selection-start-line="57" selection-start-column="40" selection-end-line="57" selection-end-column="40" />
-              <folding />
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="470">
+                <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+                <folding />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -84,6 +65,8 @@
         <option value="$PROJECT_DIR$/tests/RPS/PlayerControllerTest.php" />
         <option value="$PROJECT_DIR$/src/RPS/RPSTournament.php" />
         <option value="$PROJECT_DIR$/tests/RPS/RPSTournamentTest.php" />
+        <option value="$PROJECT_DIR$/src/Import/Import.php" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -183,7 +166,7 @@
             <path>
               <item name="gray_owl" type="b2602c69:ProjectViewProjectNode" />
               <item name="gray_owl" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="coverage" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="screenshots" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="gray_owl" type="b2602c69:ProjectViewProjectNode" />
@@ -200,12 +183,6 @@
               <item name="gray_owl" type="b2602c69:ProjectViewProjectNode" />
               <item name="gray_owl" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="tests" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="gray_owl" type="b2602c69:ProjectViewProjectNode" />
-              <item name="gray_owl" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="tests" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Import" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="gray_owl" type="b2602c69:ProjectViewProjectNode" />
@@ -235,6 +212,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/screenshots" />
       <recent name="$PROJECT_DIR$/src/RPS" />
     </key>
   </component>
@@ -290,7 +268,7 @@
       <option name="presentableId" value="Default" />
       <updated>1515935111767</updated>
       <workItem from="1515935114805" duration="21000" />
-      <workItem from="1515935148312" duration="78365000" />
+      <workItem from="1515935148312" duration="79614000" />
     </task>
     <servers />
   </component>
@@ -324,7 +302,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="78386000" />
+    <option name="totallyTimeSpent" value="79635000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1680" height="986" extended-state="0" />
@@ -369,17 +347,6 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="0">
-            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-            <folding />
-          </first_editor>
-          <second_editor />
         </state>
       </provider>
     </entry>
@@ -430,14 +397,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1996">
           <caret line="741" column="9" lean-forward="false" selection-start-line="741" selection-start-column="9" selection-end-line="741" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/RPS/CancelledTournamentException.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="6" column="6" lean-forward="false" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
           <folding />
         </state>
       </provider>
@@ -542,22 +501,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Import/Test.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1279">
-          <caret line="168" column="2" lean-forward="false" selection-start-line="168" selection-start-column="2" selection-end-line="168" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Import/Import.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="9" column="34" lean-forward="false" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
           <folding />
         </state>
       </provider>
@@ -679,6 +622,113 @@
         <state relative-caret-position="553">
           <caret line="57" column="40" lean-forward="false" selection-start-line="57" selection-start-column="40" selection-end-line="57" selection-end-column="40" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Import/ConfigurableProductInterface.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Import/ImportInterface.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Import/ProductInterface.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-466">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Import/SimpleProductInterface.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Import/Import.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="813">
+          <caret line="36" column="0" lean-forward="true" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Import/files/test1.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Import/files/test2.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Import/files/test3.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Import/files/test5.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Import/ImportProducts.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-123">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Import/Test.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="546">
+          <caret line="21" column="23" lean-forward="true" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/RPS/CancelledTournamentException.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="6" column="6" lean-forward="false" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="470">
+            <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
