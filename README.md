@@ -15,3 +15,29 @@ The tests are
 
 * [Rock, paper and scissor](src/RPS)
 * [Product import](src/Import)
+
+----
+
+### Ismail Cam - Rock, paper and scissor
+
+#### Implemented Classes
+* [PlayerController.php](src/RPS/PlayerController.php)
+* [MatchController.php](src/RPS/MatchController.php)
+
+#### Modified Classes
+* [RPSTournament.php](src/RPS/MatchController.php)
+* [CancelledTournamentException.php](src/RPS/CancelledTournamentException.php)
+* [InvalidTournamentException.php](src/RPS/InvalidTournamentException.php)
+* [Player.php](src/RPS/Player.php)
+
+#### Implemented Test Classes
+* [RPSTournamentTest.php](tests/RPS/RPSTournamentTest.php)
+* [PlayerControllerTest.php](tests/RPS/PlayerControllerTest.php)
+* [MatchControllerTest.php](tests/RPS/MatchControllerTest.php)
+* [PlayerTest.php](tests/RPS/PlayerTest.php)
+
+#### Code Coverage Results
+<img src="screenshots/rps-code-coverage.png">
+
+#### Test Results
+<img src="screenshots/rps-test-result.png">

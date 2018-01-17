@@ -1,4 +1,5 @@
 <?php
+
 namespace SDM\RPS;
 
 class Player
@@ -18,7 +19,7 @@ class Player
      * @param string $name
      * @param string $hand
      */
-    public function __construct($name, $hand)
+    public function __construct( $name, $hand )
     {
         $this->name = $name;
         $this->hand = $hand;
@@ -39,5 +40,14 @@ class Player
     {
         return $this->name;
     }
+
+    /**
+     * @return string
+     */
+    public function __toString(): string
+    {
+        return "Name: {$this->name}, Hand: {$this->hand}";
+    }
+
 
 }
