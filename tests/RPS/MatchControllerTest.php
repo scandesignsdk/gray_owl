@@ -72,6 +72,7 @@ class MatchControllerTest extends TestCase
     /**
      * The winner of the match (with only one player).
      * (If player does not have any opponent.)
+     * @covers MatchController::getWinner()
      */
     public function testGetWinnerOnePlayer()
     {
@@ -83,6 +84,7 @@ class MatchControllerTest extends TestCase
 
     /**
      * The winner of the match (with two players).
+     * @covers MatchController::getWinner()
      */
     public function testGetWinnerWithToPlayer()
     {
@@ -96,6 +98,7 @@ class MatchControllerTest extends TestCase
 
     /**
      * The winner of the match.
+     * @covers MatchController::getMatchWinner()
      */
     public function testGetMatchWinner()
     {
@@ -107,6 +110,7 @@ class MatchControllerTest extends TestCase
 
     /**
      * Is given players set
+     * @covers MatchController::setPlayers()
      */
     public function testSetPlayers()
     {

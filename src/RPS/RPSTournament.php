@@ -31,41 +31,45 @@ class RPSTournament
     /**
      * RPSTournament constructor.
      *
-     * @param Player[] $players
-     * @param PlayerController $playerCtrl
-     * @param MatchController $matchCtrl
+     * @param array $players
+     * @param PlayerController|null $playerCtrl
+     * @param MatchController|null $matchCtrl
+     *
      */
     public function __construct( array $players, PlayerController $playerCtrl = null, MatchController $matchCtrl = null )
     {
         $this->playerCtrl = is_null( $playerCtrl ) ? new PlayerController( $players, self::HANDS ) : $playerCtrl;
         $this->matchCtrl = is_null( $matchCtrl ) ? new MatchController( self::HANDS ) : $matchCtrl;
+        $this->players = $players;
     }
 
     /**
      * Start the tournament and get the winner.
      * @return Player
+     * @throws CancelledTournamentException
+     * @throws InvalidTournamentException
      */
     public function getWinner(): Player
     {
-        try
-        {
-            // Set validated players
-            $this->players = $this->playerCtrl->getValidPlayers();
+        // Set validated players
+        $this->setValidPlayers();
 
-            // Check if the tournament has enough validated players
-            $this->isValidTournament();
+        // Check all player hands
+        $this->playerCtrl->validatePlayerHands( $this->players );
 
-            // Check all player hands
-            $this->playerCtrl->validatePlayerHands( $this->players );
+        // Check if the tournament has enough validated players
+        $this->isValidTournament();
 
-            // Run matched and get the final winner
-            return $this->runMatches();
+        // Run matched and get the final winner
+        return $this->runMatches();
+    }
 
-        }
-        catch( InvalidTournamentException | CancelledTournamentException $e )
-        {
-            echo $e->getMessage();
-        }
+    /**
+     * @throws CancelledTournamentException
+     */
+    private function setValidPlayers()
+    {
+        $this->players = $this->playerCtrl->getValidPlayers();
     }
 
     private function runMatches()
@@ -129,19 +133,3 @@ class RPSTournament
         throw new CancelledTournamentException();
     }
 }
-/*
-require '../../vendor/autoload.php';
-
-$players[] = new Player( "Iso", "R" );
-$players[] = new Player( "Eda", "S" );
-$players[] = new Player( "Elif", "S" );
-$players[] = new Player( "Dilo", "R" );
-$players[] = new Player( "Cam", "R" );
-$players[] = new Player( "John", "R" );
-$players[] = new Player( "Noo", "S" );
-$players[] = new Player( "Noo2", "P" );
-$players[] = new Player( "Noo3", "R" );
-
-$rps = new RPSTournament( $players );
-
-print_r( $rps->startTournament() );*/
