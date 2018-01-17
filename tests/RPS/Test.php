@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
 class Test extends TestCase
 {
 
-    public function test()
+    public function testDefault()
     {
         $this->assertTrue( true );
     }

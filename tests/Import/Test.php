@@ -9,6 +9,11 @@ use PHPUnit\Framework\TestCase;
 class Test extends TestCase
 {
 
+    public function testDefault()
+    {
+        $this->assertTrue( true );
+    }
+
 //    public function test_csv5()
 //    {
 //        $imported = $this->parseCsvData(__DIR__ . '/files/test5.csv', ',');
