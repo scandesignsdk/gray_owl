@@ -12,7 +12,15 @@ class PlayerControllerTest extends TestCase
      * @var PlayerController
      */
     protected $playerCtrl;
+
+    /**
+     * @var Player[]
+     */
     protected $players;
+
+    /**
+     * @var array
+     */
     protected $hands;
 
     protected function setUp()

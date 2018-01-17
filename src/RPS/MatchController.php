@@ -13,7 +13,7 @@ class MatchController
     /**
      * @var Player[]
      */
-    private $players;
+    private $matchPlayers;
 
     /**
      * MatchController constructor.
@@ -32,13 +32,13 @@ class MatchController
      *
      * @return Player
      */
-    public function getWinner( $players )
+    public function getWinner( $players ): Player
     {
         $this->setPlayers( $players );
 
-        if( sizeof( $this->players ) == 1 )
+        if( sizeof( $this->matchPlayers ) == 1 )
         {
-            return $this->players[ 0 ];
+            return $this->matchPlayers[ 0 ];
         }
 
         return $this->getMatchWinner();
@@ -51,19 +51,18 @@ class MatchController
      */
     private function setPlayers( $players )
     {
-        $this->players = $players;
-
+        $this->matchPlayers = $players;
     }
 
     /**
      * Get the winner of the match
      * @return Player
      */
-    private function getMatchWinner()
+    private function getMatchWinner(): Player
     {
         $hands = $this->hands;
-        $f = $this->players[ 0 ];
-        $s = $this->players[ 1 ];
+        $f = $this->matchPlayers[ 0 ];
+        $s = $this->matchPlayers[ 1 ];
 
         foreach( $hands as $hand )
         {
@@ -77,17 +76,5 @@ class MatchController
         }
 
         return $s;
-
-        /*for( $i = 0; $i < sizeof( $hands ); $i++ )
-        {
-            $next = $i == sizeof( $hands ) - 1 ? 0 : $i + 1;
-
-            if( $f->getHand() === $hands[ $i ] && ( $s->getHand() === $hands[ $i ] || $s->getHand() === $hands[ $next ] ) )
-            {
-                return $f;
-            }
-        }
-
-        return $s;*/
     }
 }
