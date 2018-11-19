@@ -5,7 +5,7 @@ use SDM\Import\ConfigurableProductInterface;
 use SDM\Import\Import;
 use SDM\Import\SimpleProductInterface;
 
-class Test extends \PHPUnit_Framework_TestCase
+class Test extends \PHPUnit\Framework\TestCase
 {
 
     public function test_csv5()

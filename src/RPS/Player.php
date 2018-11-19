@@ -21,7 +21,7 @@ class Player
     public function __construct($name, $hand)
     {
         $this->name = $name;
-        $this->hand = $hand;
+        $this->hand = strtoupper($hand);
     }
 
     /**
@@ -29,7 +29,7 @@ class Player
      */
     public function getHand(): string
     {
-        return $this->hand;
+        return strtoupper($this->hand);
     }
 
     /**
