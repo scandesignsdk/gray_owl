@@ -5,8 +5,10 @@ use SDM\RPS\CancelledTournamentException;
 use SDM\RPS\InvalidTournamentException;
 use SDM\RPS\Player;
 use SDM\RPS\RPSTournament;
-
-class Test extends \PHPUnit_Framework_TestCase
+/*
+ C:\wamp64\www\scandesign>phpunit --bootstrap vendor/autoload.php tests/rps/test
+ * */
+class Test extends \PHPUnit\Framework\TestCase
 {
 
     public function testPlayer()
