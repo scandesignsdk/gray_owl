@@ -1,9 +1,9 @@
 <?php
+
 namespace SDM\RPS;
 
 class Player
 {
-
     /**
      * @var string
      */
@@ -14,30 +14,19 @@ class Player
      */
     private $hand;
 
-    /**
-     * @param string $name
-     * @param string $hand
-     */
-    public function __construct($name, $hand)
+    public function __construct(string $name, string $hand)
     {
         $this->name = $name;
         $this->hand = $hand;
     }
 
-    /**
-     * @return string
-     */
     public function getHand(): string
     {
         return $this->hand;
     }
 
-    /**
-     * @return string
-     */
     public function getName(): string
     {
         return $this->name;
     }
-
 }

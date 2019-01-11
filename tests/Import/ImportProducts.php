@@ -1,4 +1,5 @@
 <?php
+
 namespace SDMTests\Import;
 
 use SDM\Import\ConfigurableProductInterface;
@@ -7,7 +8,6 @@ use SDM\Import\SimpleProductInterface;
 
 class ImportProducts
 {
-
     /**
      * @var ProductInterface[]
      */
@@ -32,5 +32,4 @@ class ImportProducts
      * @var ProductInterface[]
      */
     public $nonvisibles = [];
-
 }

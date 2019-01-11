@@ -13,7 +13,7 @@
   ],
   "license": "MIT",
   "require": {
-    "php": "^7.1"
+    "php": "^7.2"
   },
   "autoload": {
     "psr-4": {
@@ -21,11 +21,18 @@
     }
   },
   "require-dev": {
-    "phpunit/phpunit": "^5.7"
+    "phpunit/phpunit": "^7.5"
   },
   "autoload-dev": {
     "psr-4": {
       "SDMTests\\": "tests"
     }
+  },
+  "scripts": {
+    "fix": [
+      "vendor/bin/phpunit",
+      "curl -sOL https://cs.sensiolabs.org/download/php-cs-fixer-v2.phar && php php-cs-fixer-v2.phar fix && rm php-cs-fixer-v2.phar",
+      "curl -sOL https://phar.phpunit.de/phpcpd.phar && php phpcpd.phar src --min-lines=10 && rm phpcpd.phar"
+    ]
   }
 }

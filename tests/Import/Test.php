@@ -1,16 +1,17 @@
 <?php
+
 namespace SDMTests\Import;
 
+use PHPUnit\Framework\TestCase;
 use SDM\Import\ConfigurableProductInterface;
 use SDM\Import\Import;
 use SDM\Import\SimpleProductInterface;
 
-class Test extends \PHPUnit_Framework_TestCase
+class Test extends TestCase
 {
-
-    public function test_csv5()
+    public function test_csv5(): void
     {
-        $imported = $this->parseCsvData(__DIR__ . '/files/test5.csv', ',');
+        $imported = $this->parseCsvData(__DIR__.'/files/test5.csv', ',');
         $this->assertCount(3, $imported->products, 'Product count');
         $this->assertCount(1, $imported->configurables, 'Configuruable count');
         $this->assertCount(2, $imported->simples, 'Simple count');
@@ -27,9 +28,9 @@ class Test extends \PHPUnit_Framework_TestCase
         $this->assertFalse($config->isInStock());
     }
 
-    public function test_csv4()
+    public function test_csv4(): void
     {
-        $imported = $this->parseCsvData(__DIR__ . '/files/test4.csv', ',');
+        $imported = $this->parseCsvData(__DIR__.'/files/test4.csv', ',');
         $this->assertCount(3, $imported->products, 'Product count');
         $this->assertCount(1, $imported->configurables, 'Configuruable count');
         $this->assertCount(2, $imported->simples, 'Simple count');
@@ -45,9 +46,9 @@ class Test extends \PHPUnit_Framework_TestCase
         $this->assertEquals('size', $config->getAttributes()[1]);
     }
 
-    public function test_csv3()
+    public function test_csv3(): void
     {
-        $imported = $this->parseCsvData(__DIR__ . '/files/test3.csv', ',');
+        $imported = $this->parseCsvData(__DIR__.'/files/test3.csv', ',');
         $this->assertCount(3, $imported->products, 'Product count');
         $this->assertCount(1, $imported->configurables, 'Configuruable count');
         $this->assertCount(2, $imported->simples, 'Simple count');
@@ -62,9 +63,9 @@ class Test extends \PHPUnit_Framework_TestCase
         $this->assertEquals('color', $config->getAttributes()[0]);
     }
 
-    public function test_csv2()
+    public function test_csv2(): void
     {
-        $imported = $this->parseCsvData(__DIR__ . '/files/test2.csv', ',');
+        $imported = $this->parseCsvData(__DIR__.'/files/test2.csv', ',');
 
         $this->assertCount(2, $imported->products, 'Product count');
         $this->assertCount(0, $imported->configurables, 'Configuruable count');
@@ -87,12 +88,11 @@ class Test extends \PHPUnit_Framework_TestCase
         $this->assertFalse($p2->isInStock());
         $this->assertEquals(0, $p2->getStock());
         $this->assertNull($p2->getAttributes());
-
     }
 
-    public function test_csv1()
+    public function test_csv1(): void
     {
-        $imported = $this->parseCsvData(__DIR__ . '/files/test1.csv', ',');
+        $imported = $this->parseCsvData(__DIR__.'/files/test1.csv', ',');
 
         $this->assertCount(16, $imported->products, 'Product count');
         $this->assertCount(4, $imported->configurables, 'Configuruable count');
@@ -144,9 +144,10 @@ class Test extends \PHPUnit_Framework_TestCase
     /**
      * @param string $filename
      * @param string $demiliter
+     *
      * @return ImportProducts
      */
-    private function parseCsvData($filename, $demiliter)
+    private function parseCsvData($filename, $demiliter): ImportProducts
     {
         $importer = new Import($filename, $demiliter);
         $importer->parse();
@@ -173,5 +174,4 @@ class Test extends \PHPUnit_Framework_TestCase
 
         return $class;
     }
-
 }

@@ -9,6 +9,10 @@ matrix:
 before_script:
   - travis_retry composer self-update
   - travis_retry composer install --prefer-dist --no-interaction
+  - curl -sOL https://cs.sensiolabs.org/download/php-cs-fixer-v2.phar
+  - curl -sOL https://phar.phpunit.de/phpcpd.phar
 
 script:
   - php vendor/bin/phpunit
+  - php php-cs-fixer-v2.phar fix
+  - php phpcpd.phar src --min-lines=10

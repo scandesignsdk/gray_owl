@@ -15,3 +15,4 @@ The tests are
 
 * [Rock, paper and scissor](src/RPS)
 * [Product import](src/Import)
+* [FizzBuzz](src/FizzBuzz)
