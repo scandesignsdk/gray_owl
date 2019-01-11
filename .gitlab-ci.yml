@@ -9,7 +9,11 @@ before_script:
   # Install composer and vendors
   - curl -sS https://getcomposer.org/installer | php
   - php composer.phar install --prefer-source -q
+  - curl -sOL https://cs.sensiolabs.org/download/php-cs-fixer-v2.phar
+  - curl -sOL https://phar.phpunit.de/phpcpd.phar
 
 test:app:
   script:
     - vendor/bin/phpunit --coverage-text --colors=never --configuration=phpunit.xml.dist
+    - php php-cs-fixer-v2.phar fix --dry-run --using-cache false --diff
+    - php phpcpd.phar src --min-lines=10

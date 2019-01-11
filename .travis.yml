@@ -14,5 +14,5 @@ before_script:
 
 script:
   - php vendor/bin/phpunit
-  - php php-cs-fixer-v2.phar fix
+  - php php-cs-fixer-v2.phar fix --dry-run --using-cache false --diff
   - php phpcpd.phar src --min-lines=10
