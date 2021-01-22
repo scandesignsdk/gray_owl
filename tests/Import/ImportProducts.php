@@ -11,25 +11,25 @@ class ImportProducts
     /**
      * @var ProductInterface[]
      */
-    public $products = [];
+    public array $products = [];
 
     /**
      * @var ConfigurableProductInterface[]
      */
-    public $configurables = [];
+    public array $configurables = [];
 
     /**
      * @var SimpleProductInterface[]
      */
-    public $simples = [];
+    public array $simples = [];
 
     /**
      * @var ProductInterface[]
      */
-    public $visibles = [];
+    public array $visibles = [];
 
     /**
      * @var ProductInterface[]
      */
-    public $nonvisibles = [];
+    public array $nonvisibles = [];
 }

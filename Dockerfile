@@ -1,4 +1,4 @@
-FROM php:7.2-cli
+FROM php:7.4-cli
 
 RUN apt-get update -yqq \
     && apt-get install git zlib1g-dev libzip-dev -y \

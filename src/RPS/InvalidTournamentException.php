@@ -2,6 +2,8 @@
 
 namespace SDM\RPS;
 
-class InvalidTournamentException extends \Exception
+use Exception;
+
+class InvalidTournamentException extends Exception
 {
 }

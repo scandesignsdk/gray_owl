@@ -2,6 +2,8 @@
 
 namespace SDM\RPS;
 
-class CancelledTournamentException extends \Exception
+use Exception;
+
+class CancelledTournamentException extends Exception
 {
 }

@@ -13,8 +13,8 @@ class Test extends TestCase
     public function testPlayer(): void
     {
         $player = new Player('name', 'hand');
-        $this->assertEquals('name', $player->getName());
-        $this->assertEquals('HAND', $player->getHand());
+        self::assertEquals('name', $player->getName());
+        self::assertEquals('HAND', $player->getHand());
     }
 
     public function validMatchesProvider(): array
@@ -63,14 +63,11 @@ class Test extends TestCase
      *
      * @param Player[]     $players
      * @param string|false $winner
-     *
-     * @throws CancelledTournamentException
-     * @throws InvalidTournamentException
      */
-    public function testValidMatches($players, $winner): void
+    public function testValidMatches(array $players, $winner): void
     {
         $tournament = new RPSTournament($players);
-        $this->assertEquals($winner, $tournament->getWinner()->getName());
+        self::assertEquals($winner, $tournament->getWinner()->getName());
     }
 
     public function invalidMatchesProvider(): array
@@ -101,7 +98,7 @@ class Test extends TestCase
      * @throws CancelledTournamentException
      * @throws InvalidTournamentException
      */
-    public function testInvalidMatches($players): void
+    public function testInvalidMatches(array $players): void
     {
         $this->expectException(InvalidTournamentException::class);
         $tournament = new RPSTournament($players);
@@ -124,11 +121,8 @@ class Test extends TestCase
      * @dataProvider cancelledMatchesProvider
      *
      * @param Player[] $players
-     *
-     * @throws CancelledTournamentException
-     * @throws InvalidTournamentException
      */
-    public function testCancelTournament($players): void
+    public function testCancelTournament(array $players): void
     {
         $this->expectException(CancelledTournamentException::class);
         $tournament = new RPSTournament($players);

@@ -3,16 +3,14 @@
 namespace SDMTests\FizzBuzz;
 
 use PHPUnit\Framework\TestCase;
+use RuntimeException;
 use SDM\FizzBuzz\FizzBuzz;
 
 class FizzBuzzTest extends TestCase
 {
-    /**
-     * @var FizzBuzz
-     */
-    private $app;
+    private FizzBuzz $app;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->app = new FizzBuzz();
     }
@@ -22,11 +20,11 @@ class FizzBuzzTest extends TestCase
      */
     public function can_run_fizzbuzz(): void
     {
-        $this->assertSame('1', $this->app->getResults(1));
-        $this->assertSame('Fizz', $this->app->getResults(3));
-        $this->assertSame('Buzz', $this->app->getResults(5));
-        $this->assertSame('FizzBuzz', $this->app->getResults(15));
-        $this->assertSame('16', $this->app->getResults(16));
+        self::assertSame('1', $this->app->getResults(1));
+        self::assertSame('Fizz', $this->app->getResults(3));
+        self::assertSame('Buzz', $this->app->getResults(5));
+        self::assertSame('FizzBuzz', $this->app->getResults(15));
+        self::assertSame('16', $this->app->getResults(16));
     }
 
     /**
@@ -36,9 +34,9 @@ class FizzBuzzTest extends TestCase
     {
         $fizz = 1;
         $buzz = 3;
-        $this->assertSame('Fizz', $this->app->getResults(1, $fizz, $buzz));
-        $this->assertSame('Fizz', $this->app->getResults(2, $fizz, $buzz));
-        $this->assertSame('FizzBuzz', $this->app->getResults(3, $fizz, $buzz));
+        self::assertSame('Fizz', $this->app->getResults(1, $fizz, $buzz));
+        self::assertSame('Fizz', $this->app->getResults(2, $fizz, $buzz));
+        self::assertSame('FizzBuzz', $this->app->getResults(3, $fizz, $buzz));
     }
 
     /**
@@ -48,10 +46,10 @@ class FizzBuzzTest extends TestCase
     {
         $fizz = 2;
         $buzz = 4;
-        $this->assertSame('1', $this->app->getResults(1, $fizz, $buzz));
-        $this->assertSame('Fizz', $this->app->getResults(2, $fizz, $buzz));
-        $this->assertSame('3', $this->app->getResults(3, $fizz, $buzz));
-        $this->assertSame('FizzBuzz', $this->app->getResults(4, $fizz, $buzz));
+        self::assertSame('1', $this->app->getResults(1, $fizz, $buzz));
+        self::assertSame('Fizz', $this->app->getResults(2, $fizz, $buzz));
+        self::assertSame('3', $this->app->getResults(3, $fizz, $buzz));
+        self::assertSame('FizzBuzz', $this->app->getResults(4, $fizz, $buzz));
     }
 
     /**
@@ -59,7 +57,7 @@ class FizzBuzzTest extends TestCase
      */
     public function should_throw_a_exeception_when_testnumber_is_below_1(): void
     {
-        $this->expectException(\RuntimeException::class);
+        $this->expectException(RuntimeException::class);
         $this->app->getResults(0);
     }
 
@@ -68,7 +66,7 @@ class FizzBuzzTest extends TestCase
      */
     public function should_throw_a_exeception_when_testnumber_is_above_100(): void
     {
-        $this->expectException(\RuntimeException::class);
+        $this->expectException(RuntimeException::class);
         $this->app->getResults(101);
     }
 }

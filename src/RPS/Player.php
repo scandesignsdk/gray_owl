@@ -4,15 +4,9 @@ namespace SDM\RPS;
 
 class Player
 {
-    /**
-     * @var string
-     */
-    private $name;
+    private string $name;
 
-    /**
-     * @var string
-     */
-    private $hand;
+    private string $hand;
 
     public function __construct(string $name, string $hand)
     {

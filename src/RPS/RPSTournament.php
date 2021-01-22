@@ -11,7 +11,7 @@ class RPSTournament
     /**
      * @var Player[]
      */
-    private $players;
+    private array $players;
 
     /**
      * @param Player[] $players Array with players
@@ -26,8 +26,6 @@ class RPSTournament
      *
      * @throws InvalidTournamentException
      * @throws CancelledTournamentException
-     *
-     * @return Player
      */
     public function getWinner(): Player
     {
